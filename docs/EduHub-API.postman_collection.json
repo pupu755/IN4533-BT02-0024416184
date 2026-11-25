@@ -1,0 +1,102 @@
+{
+  "info": {
+    "_postman_id": "e453302-eduhub-mini-bui-trung-tin",
+    "name": "EduHub Mini API - IN4533 (Bùi Trung Tín - 0024416184)",
+    "description": "Postman Collection kiểm thử 4 chức năng RESTful API theo yêu cầu Bài tập 02",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET Registrations by Course ID (200 OK)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/courses/1/registrations",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "5000",
+          "path": [ "api", "v1", "courses", "1", "registrations" ]
+        }
+      }
+    },
+    {
+      "name": "2. POST Create Registration - Success (201 Created)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"memberId\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/courses/4/registrations",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "5000",
+          "path": [ "api", "v1", "courses", "4", "registrations" ]
+        }
+      }
+    },
+    {
+      "name": "3. POST Create Registration - Duplicate Error (409 Conflict RFC 9457)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"memberId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/courses/1/registrations",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "5000",
+          "path": [ "api", "v1", "courses", "1", "registrations" ]
+        }
+      }
+    },
+    {
+      "name": "4. PUT Confirm Registration (200 OK)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"confirmed\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/registrations/2/status",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "5000",
+          "path": [ "api", "v1", "registrations", "2", "status" ]
+        }
+      }
+    },
+    {
+      "name": "5. DELETE Cancel Registration (200 OK)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/registrations/2",
+          "protocol": "http",
+          "host": [ "localhost" ],
+          "port": "5000",
+          "path": [ "api", "v1", "registrations", "2" ]
+        }
+      }
+    }
+  ]
+}

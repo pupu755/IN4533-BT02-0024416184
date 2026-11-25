@@ -1,0 +1,15 @@
+# .NET Core / C#
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Secrets & Configs with real credentials
+appsettings.Development.json
+*.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
